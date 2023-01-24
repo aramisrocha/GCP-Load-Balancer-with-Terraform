@@ -3,7 +3,7 @@ resource "google_compute_global_address" "default" {
   name     = "ipj03"
 }
 
-# forwarding rule
+# Regas de forward
 resource "google_compute_global_forwarding_rule" "default" {
   name                  = "fw03"
   ip_protocol           = "TCP"
