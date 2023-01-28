@@ -14,7 +14,7 @@ resource "google_compute_instance_template" "mytemplate" {
   }
 
   network_interface {
-    network = "default"
+    network = google_compute_network.vpc-pj01.self_link
     access_config {
       // ephemeral IP
     }
