@@ -1,11 +1,4 @@
-  data "terraform_remote_state" "network" {
-  backend = "gcs"
-  config = {
-    bucket = "tf-state-bucke-aramis"
-    prefix = "terraform/state"
-    credentials = ("C:\\Program Files (x86)\\Terraform\\first-app-project-371521-1903d04c417b.json")
-  }
-}
+# Foram criados dois templates em duas regioes diferentes
 
 resource "google_compute_instance_template" "mytemplate-us-central1" {
   name = "aramis-pj02-central"
@@ -25,10 +18,6 @@ resource "google_compute_instance_template" "mytemplate-us-central1" {
   network_interface {
     network = "${google_compute_network.vpc-pj01.self_link}"
     subnetwork = "${google_compute_subnetwork.my_subnet_us-central1.self_link}"
-    #network_endpoint_group = "${google_compute_network_endpoint_group.my_neg.self_link}"
-    access_config {
-      // ephemeral IP
-    }
   }
   
 }
@@ -53,10 +42,6 @@ resource "google_compute_instance_template" "mytemplate-west1" {
   network_interface {
     network = "${google_compute_network.vpc-pj01.self_link}"
     subnetwork = "${google_compute_subnetwork.my_subnet_us-west1.self_link}"
-    #network_endpoint_group = "${google_compute_network_endpoint_group.my_neg.self_link}"
-    access_config {
-      // ephemeral IP
-    }
   }
   
 }
