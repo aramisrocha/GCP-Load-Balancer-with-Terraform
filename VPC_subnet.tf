@@ -86,3 +86,7 @@ resource "google_compute_instance" "vm-2" {
     subnetwork   = google_compute_subnetwork.my_subnet_us-west1.self_link
   }
 }
+
+output "vpc_pj01_self_link" {
+  value = google_compute_network.vpc-pj01.self_link
+}
