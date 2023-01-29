@@ -30,9 +30,9 @@ resource "google_compute_backend_service" "default" {
   port_name               = "my-port"
   load_balancing_scheme   = "EXTERNAL"
   timeout_sec             = 30
-  enable_cdn              = false
-  #custom_request_headers  = ["X-Client-Geo-Location: {client_region_subdivision}, {client_city}"]
-  #custom_response_headers = ["X-Cache-Hit: {cdn_cache_status}"]
+  enable_cdn              = true
+  custom_request_headers  = ["X-Client-Geo-Location: {client_region_subdivision}, {client_city}"]
+  custom_response_headers = ["X-Cache-Hit: {cdn_cache_status}"]
   health_checks           = [google_compute_health_check.default.id]
   backend {
     group           = google_compute_instance_group_manager.my-instance-group-pj02-central1.instance_group
