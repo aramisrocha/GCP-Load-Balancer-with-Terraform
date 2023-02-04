@@ -38,12 +38,12 @@ resource "google_compute_backend_service" "default" {
     group           = "${google_compute_instance_group_manager.my-instance-group-pj02-central1.instance_group}"
     #max_connections_per_instance = 1
     balancing_mode  = "UTILIZATION"
-    max_rate_per_instance = 1
+    #max_rate_per_instance = 1
   }
  backend {
   group           = "${google_compute_instance_group_manager.my-instance-group-pj02-west1.instance_group}"
     balancing_mode  = "UTILIZATION"
-    max_rate_per_instance = 1
+    #max_rate_per_instance = 1
 }
 }
 
